@@ -2,4 +2,5 @@
 <resources>
     <dimen name="logo">200dp</dimen>
     <dimen name="magin">50dp</dimen>
+    <dimen name="h2">12sp</dimen>
 </resources>
