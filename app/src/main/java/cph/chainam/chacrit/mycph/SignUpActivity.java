@@ -2,6 +2,7 @@ package cph.chainam.chacrit.mycph;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -51,6 +52,18 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 myAlert.myDialog("มีช่องว่าง", "กรุณากรอกทุกช่อง คะ");
 
             } else {
+                // No space
+                try {
+
+                    PostData postData = new PostData(SignUpActivity.this);
+                    postData.execute(userString, nameString, passwordString);
+
+                    String result = postData.get();
+                    Log.d("AprilV1", "result ==>" + result);
+
+                } catch (Exception e) {
+                    Log.d("26AprilV1", "e SignUp ==>" + e.toString());
+                }
 
             }
 
