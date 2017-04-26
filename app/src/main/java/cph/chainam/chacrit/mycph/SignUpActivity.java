@@ -64,6 +64,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 } catch (Exception e) {
                     Log.d("26AprilV1", "e SignUp ==>" + e.toString());
                     //finish
+
                 }
 
             }
