@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -95,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             JSONArray jsonArray = new JSONArray(strJSON);
             for (int i=0;i<jsonArray.length();i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                if (userString.equals(jsonObject.getString("columnStrings[2]"))) {
+                if (userString.equals(jsonObject.getString(columnStrings[2]))) {
                     b = false;
                     for (int i1=0;i1<columnStrings.length;i1++) {
                         loginStrings[i1] = jsonObject.getString(columnStrings[i1]);
@@ -104,6 +105,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 }
 
+            }
+
+            if (b) {
+                //User false
+                MyAlert myAlert = new MyAlert(MainActivity.this);
+                myAlert.myDialog("User False", "No This User in my Database");
+
+            } else if (passwordString.equals(loginStrings[3])) {
+                Toast.makeText(MainActivity.this, "Welcome" + loginStrings[1],
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                MyAlert myAlert = new MyAlert(MainActivity.this);
+                myAlert.myDialog("Password False", "Please Try Again password False");
             }
 
         } catch (Exception e) {
