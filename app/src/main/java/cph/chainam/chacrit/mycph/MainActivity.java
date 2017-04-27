@@ -82,7 +82,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         try {
 
 
-            String urlJSON = "http://swiftcodingthai.com/cph/php_get_data_chacrit1.php";
+          //  String urlJSON = "http://swiftcodingthai.com/cph/php_get_data_chacrit1.php";
+            String urlJSON = "http://swiftcodingthai.com/getDataMaster.php";
             boolean b = true;
             String[] columnStrings = new String[]{"id", "Name", "User", "Password"};
             String[] loginStrings = new String[columnStrings.length];
@@ -115,9 +116,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } else if (passwordString.equals(loginStrings[3])) {
                 Toast.makeText(MainActivity.this, "Welcome" + loginStrings[1],
                         Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(MainActivity.this, ServiceActivity.class);
+                intent.putExtra("Login", loginStrings);
+                startActivity(intent);
+                finish();
+
             } else {
                 MyAlert myAlert = new MyAlert(MainActivity.this);
-                myAlert.myDialog("Password False", "Please Try Again password False");
+                myAlert.myDialog("Password False", "No This User in my Database");
             }
 
         } catch (Exception e) {
