@@ -13,10 +13,13 @@ import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import cph.chainam.chacrit.mycph.MyAlert;
+import cph.chainam.chacrit.mycph.ServiceActivity;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     //Explicit
-    private EditText userEditText,passwordEditText;
+    private EditText userEditText, passwordEditText;
     private TextView textView;
     private Button button;
     private String userString, passwordString;
@@ -32,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Controller
         controller();
 
-    } //main method
+    }   // Main Method
 
     private void controller() {
         textView.setOnClickListener(MainActivity.this);
@@ -46,17 +49,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button = (Button) findViewById(R.id.btnLogin);
     }
 
+
     @Override
-    public void onClick(View v) {
+    public void onClick(View view) {
+
         //For TextView
-        if (v == textView) {
+        if (view == textView) {
             //Intent to SignUp
             Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
             startActivity(intent);
         }
 
         //For Button
-        if (v == button) {
+        if (view == button) {
 
             //Get Value From EditText
             userString = userEditText.getText().toString().trim();
@@ -66,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (userString.equals("") || passwordString.equals("")) {
                 //Have Space
                 MyAlert myAlert = new MyAlert(MainActivity.this);
-                myAlert.myDialog("Have Space", "please Fill All Every Blank");
+                myAlert.myDialog("Have Space", "Please Fill All Every Blank");
 
             } else {
                 //No Space
@@ -76,26 +81,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         }
+
     }
 
     private void checkUserAnPass() {
         try {
 
-
-          //  String urlJSON = "http://swiftcodingthai.com/cph/php_get_data_chacrit1.php";
-            String urlJSON = "http://swiftcodingthai.com/getDataMaster.php";
+//            String urlJSON = "http://swiftcodingthai.com/cph/getDataMaster.php";
+            String urlJSON = "http://swiftcodingthai.com/cph/getDataMaster.php";
             boolean b = true;
             String[] columnStrings = new String[]{"id", "Name", "User", "Password"};
             String[] loginStrings = new String[columnStrings.length];
 
-
             GetData getData = new GetData(MainActivity.this);
             getData.execute(urlJSON);
             String strJSON = getData.get();
-            Log.d("27AprilV1", "JSON ==>" + strJSON);
+            Log.d("27AprilV1", "JSON ==> " + strJSON);
 
             JSONArray jsonArray = new JSONArray(strJSON);
-            for (int i=0;i<jsonArray.length();i++) {
+
+            for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 if (userString.equals(jsonObject.getString(columnStrings[2]))) {
                     b = false;
@@ -105,16 +110,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
 
                 }
-
             }
 
+
             if (b) {
-                //User false
+                // User False
                 MyAlert myAlert = new MyAlert(MainActivity.this);
                 myAlert.myDialog("User False", "No This User in my Database");
 
             } else if (passwordString.equals(loginStrings[3])) {
-                Toast.makeText(MainActivity.this, "Welcome" + loginStrings[1],
+                Toast.makeText(MainActivity.this, "Welcome " + loginStrings[1],
                         Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(MainActivity.this, ServiceActivity.class);
@@ -124,12 +129,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             } else {
                 MyAlert myAlert = new MyAlert(MainActivity.this);
-                myAlert.myDialog("Password False", "No This User in my Database");
+                myAlert.myDialog("Password False", "Please Try Again Password False");
             }
 
-        } catch (Exception e) {
-            Log.d("27AprilV1", "e checkUser ==>" + e.toString());
 
+        } catch (Exception e) {
+            Log.d("27AprilV1", "e checkUser ==> " + e.toString());
         }
     }
-} //main class
+
+}   // Main Class นี่คือ คลาสหลัก เว้ยเห้ย

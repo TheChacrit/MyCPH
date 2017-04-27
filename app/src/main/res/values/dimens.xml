@@ -3,4 +3,8 @@
     <dimen name="logo">200dp</dimen>
     <dimen name="magin">50dp</dimen>
     <dimen name="h2">12sp</dimen>
+    <dimen name="h1">30sp</dimen>
+    <dimen name="h3">30dp</dimen>
+    <dimen name="padding">20dp</dimen>
+    <dimen name="h4">15dp</dimen>
 </resources>
