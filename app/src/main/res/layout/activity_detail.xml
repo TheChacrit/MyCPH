@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DetailActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/padding">
+
+        <ImageView
+            android:id="@+id/imvBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/h2"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+       <LinearLayout
+           android:orientation="vertical"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="@dimen/margin"
+               android:layout_marginTop="@dimen/margin"
+               android:text="Date"
+               android:textColor="@color/colorPrimaryDark"
+               android:textSize="@dimen/h2"
+               android:textStyle="bold" />
+
+           <TextView
+               android:id="@+id/txtDate"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="@dimen/margin"
+               android:text="2012/21/21 10:12:22"
+               android:textColor="@color/colorPrimary"
+               android:textSize="@dimen/h2"
+               android:textStyle="italic" />
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="@dimen/margin"
+               android:layout_marginTop="@dimen/margin"
+               android:text="Detail"
+               android:textColor="@color/colorPrimaryDark"
+               android:textSize="@dimen/h2"
+               android:textStyle="bold" />
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="@dimen/margin"
+               android:text="detail"
+               android:textColor="@color/colorPrimary"
+               android:textSize="@dimen/h2"
+               android:textStyle="italic" />
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="@dimen/margin"
+               android:layout_marginTop="@dimen/margin"
+               android:text="@string/seve"
+               android:textColor="@color/colorPrimaryDark"
+               android:textSize="@dimen/h2"
+               android:textStyle="bold" />
+
+           <TextView
+               android:id="@+id/txtreceiveName"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="@dimen/margin"
+               android:text="@string/name"
+               android:textColor="@color/colorPrimary"
+               android:textSize="@dimen/h2"
+               android:textStyle="italic" />
+
+       </LinearLayout>
+
+   </ScrollView>
+
+
+</LinearLayout>

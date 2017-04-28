@@ -7,4 +7,5 @@
     <dimen name="h3">30dp</dimen>
     <dimen name="padding">20dp</dimen>
     <dimen name="h4">15dp</dimen>
+    <dimen name="margin">30dp</dimen>
 </resources>
