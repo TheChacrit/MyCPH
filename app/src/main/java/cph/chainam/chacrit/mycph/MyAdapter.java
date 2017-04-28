@@ -53,8 +53,22 @@ public class MyAdapter extends BaseAdapter{
 
         nameTextView.setText(nameStrings[position]);
         dateTextView.setText(dateStrings[position]);
-        detailTextView.setText(detailStrings[position]);
+        detailTextView.setText(createDetailShow(detailStrings[position]));
 
         return view;
+    }
+
+    private String createDetailShow(String detailString) {
+
+        String result = null;
+        if (detailString.length() >= 30) {
+
+            result = detailString.substring(0, 30) + "...";
+
+        } else {
+            result = detailString;
+        }
+
+        return null;
     }
 }//Main Class

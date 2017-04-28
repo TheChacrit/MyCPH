@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:text="detail ..."
         android:layout_marginLeft="@dimen/padding"
-        android:textSize="10dp"
+        android:textSize="@dimen/h2"
         android:textStyle="bold" />
 
 </LinearLayout>

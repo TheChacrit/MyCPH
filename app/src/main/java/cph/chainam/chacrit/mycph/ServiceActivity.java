@@ -56,9 +56,9 @@ public class ServiceActivity extends AppCompatActivity {
             for (int i=0;i<jsonArray.length();i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 nameStrings[i] = jsonObject.getString("Name");
-                nameStrings[i] = jsonObject.getString("Date_Receive");
-                nameStrings[i] = jsonObject.getString("Description");
-                nameStrings[i] = jsonObject.getString("QR_code");
+                dateStrings[i] = jsonObject.getString("Date_Receive");
+                detailStrings[i] = jsonObject.getString("Description");
+                qrCodeStrings[i] = jsonObject.getString("QR_code");
             }
 
             MyAdapter myAdapter = new MyAdapter(ServiceActivity.this, nameStrings,
